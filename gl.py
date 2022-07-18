@@ -21,11 +21,6 @@ def glViewport(x,y, width, height):
 	objetoRender.vp_width = width
 	objetoRender.vp_height = height
 
-	# Dibujando el VP: ForLoop previo
-	# for j in range(x,width):
-	# 	for k in range(y,height):
-	# 		objetoRender.point(j,k)
-
 	# Dibujando el VP: ForLoop posterior
 	for ancho in range(x, width+x):
 		for alto in range(y, height+y):
@@ -35,7 +30,7 @@ def glClear():
 	objetoRender.clear()
 
 def glClearColor(r, g, b):
-	objetoRender.clear_color = color(r, g, b)
+	objetoRender.clear_color = color(round(255*r), round(255*g), round(255*b))
 	glClear()
 
 def glVertex(x,y):
@@ -49,7 +44,7 @@ def glVertex(x,y):
 
 
 def glColor(r, g, b):
-	objetoRender.current_color = color(r, g, b)
+	objetoRender.current_color = color(round(255*r), round(255*g), round(255*b))
 
 def glFinish():
 	objetoRender.write('test.bmp')

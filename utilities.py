@@ -1,7 +1,6 @@
 import struct
 
 def char(c):
-	# 1 byte 
 	return struct.pack('=c', c.encode('ascii'))
 
 def word(w):
