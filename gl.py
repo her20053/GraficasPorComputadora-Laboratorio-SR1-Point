@@ -36,11 +36,24 @@ def glClearColor(r, g, b):
 def glVertex(x,y):
 	# objetoRender.current_color = color(0,255,0)
 
-	objetoRender.point(objetoRender.vp_x , objetoRender.vp_y)
+	# objetoRender.point(objetoRender.vp_x , objetoRender.vp_y)
 
-	objetoRender.point(objetoRender.vp_x + x + round(objetoRender.vp_width/2), objetoRender.vp_y + y + round(objetoRender.vp_height/2))
+	# objetoRender.point(objetoRender.vp_x + round(objetoRender.vp_width/2) + round(x * (objetoRender.vp_width/2)), objetoRender.vp_y + y + round(objetoRender.vp_height/2))
 
-	objetoRender.point(objetoRender.vp_x + objetoRender.vp_width - 1, objetoRender.vp_y + objetoRender.vp_height - 1)
+	des_x = objetoRender.vp_x
+	des_y = objetoRender.vp_y
+	width = objetoRender.vp_width
+	height = objetoRender.vp_height
+
+	centro_x = round(des_x + (width/2))
+	centro_y = round(des_y + (height/2))
+
+	movimiento_x = centro_x + round(x * width/2) 
+	movimiento_y = centro_y + round(y * height/2) 
+
+	objetoRender.point(movimiento_x,movimiento_y)
+
+	# objetoRender.point(objetoRender.vp_x + objetoRender.vp_width - 1, objetoRender.vp_y + objetoRender.vp_height - 1)
 
 
 def glColor(r, g, b):
